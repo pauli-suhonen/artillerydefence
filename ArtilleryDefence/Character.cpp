@@ -4,6 +4,7 @@
 #include "SDL_Setup.h"
 #include "GameTime.h"
 #include "CharStateMachine.h"
+#include "GameMap.h"
 
 
 //SDL_FLIP_NONE
@@ -17,7 +18,7 @@ CCharacter::CCharacter(float argPosX, float argPosY, float argVelX, float argVel
 	sprite = NULL; 
 	charSpeed = 8;//Not Usain
 	walkSpeed = 1.4;//Definately not Usain
-	walkSpeed = 2.0;//Definately not Usain
+	walkSpeed = 6.0;//Definately not Usain
 	//walkSpeed = 140;//Definately not Usain
 	jumpVel = 8;
 	direction = 1;
@@ -58,6 +59,8 @@ void CCharacter::Update()
 
 void CCharacter::Draw(CCamera* cameraInst)
 {
+	sprite->SetWidthPix(cameraInst->WorldWidth2CameraWidth(spriteHitBoxWidthRatio*GetWidth()));
+	sprite->SetHeightPix(cameraInst->WorldHeight2CameraHeight(spriteHitBoxHeightRatio*GetHeight()));
 	sprite->SetXPix(cameraInst->WorldX2CameraX(posX));
 	sprite->SetYPix(cameraInst->WorldY2CameraY(posY));
 	sprite->SetDirection(direction);
@@ -100,9 +103,13 @@ float CCharacter::GetJumpVel()
 	return jumpVel;
 }
 
-void CCharacter::SetSprite(CSprite* argSprite)
+void CCharacter::SetSprite(CSprite* argSprite, float argSpriteHitBoxWidthRatio, float argSpriteHitBoxHeightRatio, CCamera* cameraInst)
 {
 	sprite = argSprite;
+	spriteHitBoxWidthRatio=argSpriteHitBoxWidthRatio;
+	spriteHitBoxHeightRatio = argSpriteHitBoxHeightRatio;
+	sprite->SetWidthPix(cameraInst->WorldWidth2CameraWidth(spriteHitBoxWidthRatio*GetWidth()));
+	sprite->SetHeightPix(cameraInst->WorldHeight2CameraHeight(spriteHitBoxHeightRatio*GetHeight()));	
 }
 
 float CCharacter::GetWidth()

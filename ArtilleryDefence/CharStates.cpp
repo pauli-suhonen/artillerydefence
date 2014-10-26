@@ -164,6 +164,7 @@ void CWalkingCS::Execute()
 }
 void CWalkingCS::Enter()
 {
+	std::cout << "Entered Walking\n";
 	if (character->GetDirection() == 1){
 		character->SetVelX(character->GetWalkSpeed());
 	}

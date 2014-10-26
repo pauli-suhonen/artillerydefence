@@ -4,24 +4,19 @@
 #include <algorithm>
 #include <fstream>
 #include <iostream>
+#include "Camera.h"
 
 CGameMap::CGameMap(std::string mapFile)
 {
-	nTilesX = 100;
-	nTilesY = 100;
 	float tileSide = 0.5;
 	charStartX = 5;
 	charStartY = 5;
-
 	
-
-	mapWidth = tileSide*nTilesX;
-	mapHeight = tileSide*nTilesY;
 	tileWidth = tileSide;
 	tileHeight = tileSide;
-
 	ReadMap(mapFile);
-	
+	mapWidth = tileSide*nTilesX;
+	mapHeight = tileSide*nTilesY;
 	/*
 	mapTiles = std::vector<std::vector<CMapTile> >(nTilesX, std::vector<CMapTile>(nTilesY));
 	for (int i = 0; i < nTilesX; i++){
@@ -55,7 +50,10 @@ CGameMap::~CGameMap()
 
 void CGameMap::Draw(CCamera* cameraInst)
 {
-	
+	for (std::vector<CSprite*>::iterator it = tileSprites.begin(); it != tileSprites.end(); it++){
+		(*it)->SetWidthPix(cameraInst->WorldWidth2CameraWidth(GetTileWidth()));
+		(*it)->SetHeightPix(cameraInst->WorldHeight2CameraHeight(GetTileHeight()));
+	}
 	for (int i = 0; i < nTilesX; i++){
 		for (int j = 0; j < nTilesY; j++){
 			if (mapTiles[i][j].type == tiletype::flat){
@@ -100,7 +98,6 @@ float CGameMap::GetCharStartY()
 
 float CGameMap::CheckYCollition(float y, float xMin, float xMax, float yCheckDist)
 {
-	std::cout << GetColumn(y) << std::endl;
 	float yCollision = yCheckDist;
 	int minColumn = std::max(0, std::min(nTilesX - 1, GetColumn(xMin)));
 	int maxColumn = std::max(0, std::min(nTilesX - 1, GetColumn(xMax)));

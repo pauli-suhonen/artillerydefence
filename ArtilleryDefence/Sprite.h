@@ -17,6 +17,9 @@ public:
 	void SetDirection(int);
 	void SetSpriteDirLeft();
 	void SetSpriteDirRight();
+	void CSprite::SetWidthPix(int argWidthPix);
+	void CSprite::SetHeightPix(int argHeightPix);
+
 private:
 	std::string imagePath;
 	int widthPix;

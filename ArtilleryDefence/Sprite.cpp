@@ -45,6 +45,8 @@ void CSprite::Draw()
 		//rect.y = sdlSetup->GetRendPosY(owner->GetPosY() + owner->GetRendYAdjust());
 	rect.x = xPix-widthPix/2;
 	rect.y = yPix-heightPix/2;
+	rect.w = widthPix;
+	rect.h = heightPix;
 	//std::cout << heightPix << std::endl;
 	//std::cout << widthPix << std::endl;
 	//std::cout << xPix << "\t" << yPix << std::endl;
@@ -103,6 +105,14 @@ void CSprite::SetXPix(int argXPix)
 void CSprite::SetYPix(int argYPix)
 {
 	yPix=argYPix;
+}
+void CSprite::SetWidthPix(int argWidthPix)
+{
+	widthPix = argWidthPix;
+}
+void CSprite::SetHeightPix(int argHeightPix)
+{
+	heightPix = argHeightPix;
 }
 void CSprite::SetDirection(int argDirection)
 {

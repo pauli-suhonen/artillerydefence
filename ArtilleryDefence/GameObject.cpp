@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "GameObject.h"
 #include "GameTime.h"
-
+#include "GameMap.h"
 
 CGameObject::CGameObject(float argPosX, float argPosY, float argVelX, float argVelY,CGameTime* argGameTimeInst, CGameMap* argGameMapInst)
 {

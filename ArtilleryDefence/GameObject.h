@@ -1,8 +1,9 @@
 #pragma once
 #include <vector>
 #include "GameTime.h"
-#include "GameMap.h"
 
+
+class CGameMap;
 class CGameObject
 {
 public:

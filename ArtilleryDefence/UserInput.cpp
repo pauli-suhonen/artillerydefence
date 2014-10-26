@@ -35,6 +35,13 @@ void CUserInput::ParseGameInput()
 			if (sdlSetup->GetMainEvent()->button.button == SDL_BUTTON_LEFT)
 				parsedCharCmds.push_back(charcmd::release);
 			break;
+		case SDL_MOUSEWHEEL:
+			std::cout << sdlSetup->GetMainEvent()->wheel.y << std::endl;
+			if (sdlSetup->GetMainEvent()->wheel.y > 0)
+				parsedGeneralCmds->push_back(generalcmd::zoomin);
+			if (sdlSetup->GetMainEvent()->wheel.y < 0)
+				parsedGeneralCmds->push_back(generalcmd::zoomout);
+			break;
 		}
 	}
 

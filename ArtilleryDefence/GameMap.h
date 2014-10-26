@@ -1,10 +1,11 @@
 #pragma once
 #include <vector>
 #include "Sprite.h"
-#include "Camera.h"
 #include "MapTile.h"
 #include "ExtraTypes.h"
 
+
+class CCamera;
 class CGameMap
 {
 public:
@@ -23,10 +24,12 @@ public:
 	void ReadMap(std::string mapFile);
 	int GetColumn(float);
 	int GetRow(float);
+	int nTilesX;
+
 private:
 	std::vector<CSprite*> tileSprites;
 	std::vector<std::vector<CMapTile> > mapTiles;
-	int nTilesX;
+	
 	int nTilesY;
 	float mapWidth;
 	float mapHeight;

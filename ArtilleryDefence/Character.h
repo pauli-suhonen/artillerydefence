@@ -24,7 +24,7 @@ public:
 	void ClearCommands();
 	const std::vector<charcmd>& GetCommands();
 	CSprite* GetSprite();
-	void SetSprite(CSprite*);
+	void SetSprite(CSprite*, float spriteHitBoxWidthRatio, float spriteHitBoxHeightRatio,CCamera*);
 	float GetWidth();
 	float GetHeight();
 	void Move();
@@ -43,6 +43,8 @@ private:
 	float walkSpeed;
 	float jumpVel;
 	bool inAir;
+	float spriteHitBoxWidthRatio;
+	float spriteHitBoxHeightRatio;
 	std::vector<charcmd> commands;
 
 	CCharStateMachine* stateMachine;
