@@ -1,0 +1,13 @@
+
+*.tlog
+*.log
+.vs/ArtilleryDefence/v15/.suo
+*.db
+*.opendb
+*.user
+*.obj
+*.pch
+*.idb
+*.pdb
+*.exe
+*.ilk
