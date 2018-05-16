@@ -1,3 +1,6 @@
 This is a simple platform game, which is still very much under development.
 
-The project has been developed on Windows using C++. The project can be compiled by opening the solution file \textit{ArtilleryDefence.sln} with Visual Studio. In principle, all components of the project are cross-platform and the code can be compiled also under Linux. However, I have yet to create separate makefiles for easy compilation on other platforms than Windows.
+The project has been developed on Windows using C++. The project can be compiled by opening the solution file ArtilleryDefence.sln with Visual Studio. In principle, all components of the project are cross-platform and the code can be compiled also under Linux. However, I have yet to create separate makefiles for easy compilation on other platforms than Windows.
+
+
+The project uses and external SDL2 library for graphics and keyboard/mouse input. I am not affiliated with SDL. The SDL related files in this project are used with the permission provided by the zlib license of SDL. Due to the code still being under development, the SDL related files are scattered around different directories of this project. I have placed the license and README information on SDL in directory SDL2_information.
