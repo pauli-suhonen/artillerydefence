@@ -1,0 +1,3 @@
+This is a simple platform game, which is still very much under development.
+
+The project has been developed on Windows using C++. The project can be compiled by opening the solution file \textit{ArtilleryDefence.sln} with Visual Studio. In principle, all components of the project are cross-platform and the code can be compiled also under Linux. However, I have yet to create separate makefiles for easy compilation on other platforms than Windows.
